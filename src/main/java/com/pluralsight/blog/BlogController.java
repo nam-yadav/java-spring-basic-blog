@@ -10,7 +10,6 @@ import java.util.List;
 
 @Controller
 public class BlogController {
-
     private PostRepository postRepository;
 
     public BlogController(PostRepository postRepository){
@@ -18,9 +17,9 @@ public class BlogController {
 
     }
     @RequestMapping("/")
-    public String listPosts(ModelMap map){
+    public String listPosts(ModelMap modelmap){
         List<Post> posts = postRepository.getAllPosts();
-        map.put("posts","posts");
+        modelmap.put("posts",posts);
         return "home";
     }
 
